@@ -1,3 +1,4 @@
+
 # Miscellaneous
 *.class
 *.log
@@ -43,3 +44,78 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+=======
+# Flutter/Dart/Pub related
+**/doc/api/
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+build/
+coverage/
+android/.gradle/
+android/app/key.properties
+*.iml
+
+# IntelliJ / Android Studio
+.idea/
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Flutter generated files
+flutter_*.png
+flutter_export_environment.sh
+generated_plugin_registrant.dart
+
+# iOS / macOS
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+ios/ServiceDefinitions.json
+ios/Runner/GeneratedPluginRegistrant.*
+ios/Pods/
+ios/.symlinks/
+ios/build/
+ios/Runner.xcworkspace/
+macos/Flutter/GeneratedPluginRegistrant.swift
+macos/Pods/
+macos/Podfile.lock
+macos/build/
+
+# Windows
+windows/flutter/
+windows/Runner/GeneratedPluginRegistrant.*
+
+# Linux
+linux/flutter/
+linux/Runner/GeneratedPluginRegistrant.*
+
+# Web
+web/wasm/
+web/.dart_tool/
+web/.packages
+
+# Misc
+*.log
+*.lock
+*.tmp
+*.DS_Store
+*.dart_tool/
+
+# Recomendado para Flutter
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+
+# Android local settings / gradle
+android/local.properties
+.gradle
+
+# Secrets / env
+*.keystore
+.env
+
+# Si este repositorio es un paquete (no una app), descomenta:
+# /pubspec.lock
