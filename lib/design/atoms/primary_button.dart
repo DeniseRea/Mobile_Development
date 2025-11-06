@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
-
+/// PrimaryButton: Átomo para botón principal reutilizable
+/// 
+/// Propiedades:
+/// - text: texto que muestra el botón
+/// - onPressed: función que se ejecuta al presionar
+/// 
+/// Ejemplo:
+///   PrimaryButton(text: "Ingresar", onPressed: () { })
 class PrimaryButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
@@ -17,11 +24,12 @@ class PrimaryButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.secondary, // Color principal (puedes cambiarlo)
-        minimumSize: const Size(double.infinity, 48), // Ancho completo
+        backgroundColor: AppColors.secondary,
+        minimumSize: const Size(double.infinity, 48),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8), // Bordes suaves
+          borderRadius: BorderRadius.circular(8),
         ),
+        elevation: 2,
       ),
       child: Text(
         text,
@@ -34,3 +42,4 @@ class PrimaryButton extends StatelessWidget {
     );
   }
 }
+

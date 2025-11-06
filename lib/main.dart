@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'design/organisms/login_section.dart';
 import 'design/atoms/colors.dart';
+import 'design/pages/login_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,21 +13,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Login App',
+      title: 'Atomic Design App',
       theme: ThemeData(
         primaryColor: AppColors.primary,
-        scaffoldBackgroundColor:Color(0xFFFAFAFA),
+        useMaterial3: true,
       ),
-      home: const Scaffold(
-        body: Center(
-          child: Padding(
-            padding: EdgeInsets.all(24.0),
-            child: SingleChildScrollView(
-              child: LoginSection(), // form
-            ),
-          ),
-        ),
-      ),
+      home: const LoginPage(),
     );
   }
 }
