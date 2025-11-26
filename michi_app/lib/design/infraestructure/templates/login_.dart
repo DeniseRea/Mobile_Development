@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:michi_app/design/molecules/header.dart';
 
 import '../../atoms/avatar.dart';
 import '../../atoms/spacing_tokens.dart';
 import '../../molecules/login_form.dart';
+import '../../atoms/theme_Colors.dart';
 
 class TempLogin extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -25,12 +27,14 @@ class TempLogin extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: Header(title: 'Iniciar Sesión'),
+      
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(Spacing.lg),
         child: Column(
           children: [
             SizedBox(height: Spacing.xxl),
-            Avatar(source: 'assets/images/cat.gif', width: 120, height: 120),
+            Avatar(source: 'lib/design/assets/gifts/paw.gif', width: 130, height: 130),
             SizedBox(height: Spacing.xxl),
             Form(
               key: formKey,
@@ -43,7 +47,7 @@ class TempLogin extends StatelessWidget {
             if (errorMessage != null && errorMessage!.isNotEmpty)
               Padding(
                 padding: const EdgeInsets.only(top: Spacing.sm),
-                child: Text(errorMessage!, style: const TextStyle(color: Colors.red)),
+                child: Text(errorMessage!, style: const TextStyle(color: ThemeColors.accent)),
               ),
             if (isLoading)
               Padding(

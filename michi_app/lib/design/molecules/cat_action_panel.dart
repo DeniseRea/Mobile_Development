@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../atoms/icon_action_button.dart';
 import '../atoms/spacing_tokens.dart';
+import '../atoms/theme_Colors.dart';
 
 class CatActionPanel extends StatelessWidget {
   final VoidCallback onFeed;
@@ -26,11 +27,11 @@ class CatActionPanel extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(Spacing.md),
       decoration: BoxDecoration(
-        color: backgroundColor ?? Colors.white,
+        color: backgroundColor ?? ThemeColors.background,
         borderRadius: BorderRadius.circular(Radius.lg),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: ThemeColors.soft1.withOpacity(0.2),
             blurRadius: Elevation.md,
             offset: const Offset(0, 2),
           ),
@@ -43,22 +44,22 @@ class CatActionPanel extends StatelessWidget {
             icon: Icons.fastfood,
             label: 'Alimentar',
             onTap: onFeed,
-            backgroundColor: buttonColor ?? const Color(0xFFB7A6FA),
-            iconColor: iconColor ?? Colors.white,
+            backgroundColor: buttonColor ?? ThemeColors.primary,
+            iconColor: iconColor ?? ThemeColors.background,
           ),
           IconActionButton(
             icon: Icons.sports_basketball,
             label: 'Jugar',
             onTap: onPlay,
-            backgroundColor: buttonColor ?? const Color(0xFFB7A6FA),
-            iconColor: iconColor ?? Colors.white,
+            backgroundColor: buttonColor ?? ThemeColors.accent,
+            iconColor: iconColor ?? ThemeColors.background,
           ),
           IconActionButton(
             icon: Icons.hotel,
             label: 'Dormir',
             onTap: onSleep,
-            backgroundColor: buttonColor ?? const Color(0xFFB7A6FA),
-            iconColor: iconColor ?? Colors.white,
+            backgroundColor: buttonColor ?? ThemeColors.soft1,
+            iconColor: iconColor ?? ThemeColors.background,
           ),
         ],
       ),

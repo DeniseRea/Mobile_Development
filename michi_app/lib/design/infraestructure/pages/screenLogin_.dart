@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:michi_app/authProvider.dart';
+import 'screenCat.dart';
 
-import '../../../authProvider.dart';
 import '../templates/login_.dart';
 
 class LoginPage extends StatefulWidget {
@@ -41,8 +41,13 @@ class _LoginPageState extends State<LoginPage> {
       passwordController.text,
     );
 
-    if (success) {
-      if (mounted) Navigator.of(context).pushReplacementNamed('/home');
+    if (success && mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('¡Bienvenido! Login exitoso')),
+      );
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (_) => const CatPage()),
+      );
     } else {
       final message = auth.errorMessage ?? 'Error de inicio de sesión';
       if (mounted) {

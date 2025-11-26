@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../atoms/avatar.dart';
 import '../atoms/spacing_tokens.dart';
 import '../atoms/text_label.dart';
+import '../atoms/theme_Colors.dart';
 
 class CatDisplay extends StatelessWidget {
   final String catName;
@@ -31,11 +32,11 @@ class CatDisplay extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(Spacing.lg),
       decoration: BoxDecoration(
-        color: containerColor ?? Colors.white,
-        borderRadius: BorderRadius.circular(Radius.lg),
+        color: containerColor ?? ThemeColors.background,
+        borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.08),
+            color: ThemeColors.soft1.withOpacity(0.2),
             blurRadius: Elevation.md,
             offset: const Offset(0, 4),
           ),

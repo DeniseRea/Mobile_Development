@@ -4,6 +4,7 @@ import '../atoms/app_input.dart';
 import '../atoms/primary_button.dart';
 import '../atoms/spacing_tokens.dart';
 import '../atoms/text_label.dart';
+import '../atoms/theme_Colors.dart';
 
 class LoginForm extends StatelessWidget {
   final TextEditingController emailController;
@@ -31,6 +32,27 @@ class LoginForm extends StatelessWidget {
     this.subtitleText = 'Ingresa tus datos para continuar',
   }) : super(key: key);
 
+  String? _emailValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'El email es requerido';
+    }
+    final emailRegex = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
+    if (!emailRegex.hasMatch(value.trim())) {
+      return 'Ingrese un email válido';
+    }
+    return null;
+  }
+
+  String? _passwordValidator(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'La contraseña es requerida';
+    }
+    if (value.length < 6) {
+      return 'Mínimo 6 caracteres';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -47,7 +69,7 @@ class LoginForm extends StatelessWidget {
           TextLabel(
             subtitleText!,
             fontSize: FontSize.md.toDouble(),
-            color: Colors.grey.shade600,
+            color: ThemeColors.soft2,
           ),
         if (subtitleText != null) SizedBox(height: Spacing.lg),
         AppInput(
@@ -55,6 +77,7 @@ class LoginForm extends StatelessWidget {
           label: emailLabel!,
           hint: emailHint!,
           keyboardType: TextInputType.emailAddress,
+          validator: _emailValidator,
         ),
         SizedBox(height: Spacing.md),
         AppInput(
@@ -62,6 +85,7 @@ class LoginForm extends StatelessWidget {
           label: passwordLabel!,
           hint: passwordHint!,
           obscure: true,
+          validator: _passwordValidator,
         ),
         SizedBox(height: Spacing.lg),
         SizedBox(

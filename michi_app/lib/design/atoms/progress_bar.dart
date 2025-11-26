@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:michi_app/design/atoms/theme_Colors.dart';
 
 class ProgressBar extends StatelessWidget {
   final String label;
@@ -51,7 +52,7 @@ class ProgressBar extends StatelessWidget {
           child: LinearProgressIndicator(
             value: percentage,
             minHeight: height,
-            backgroundColor: backgroundColor ?? Colors.grey.shade300,
+            backgroundColor: backgroundColor ?? ThemeColors.soft2.withOpacity(0.3),
             valueColor: AlwaysStoppedAnimation<Color>(
               color ?? Colors.blue,
             ),

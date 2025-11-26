@@ -10,8 +10,8 @@ class MockUser {
 
 class AuthProvider extends ChangeNotifier {
   final List<MockUser> _mockUsers = const [
-    MockUser(email: 'deni@espe.com', password: 'denise123', name: 'deni'),
-    MockUser(email: 'noemi@yoto.com', password: 'noemi123', name: 'noemi'),
+    MockUser(email: 'deni@espe.com', password: 'denise123', name: 'Denise'),
+    MockUser(email: 'noemi@yoto.com', password: 'noemi123', name: 'Noemi'),
   ];
 
   bool _isLoading = false;
@@ -56,4 +56,17 @@ class AuthProvider extends ChangeNotifier {
 
 
   List<MockUser> get mockUsers => List.unmodifiable(_mockUsers);
+
+  /// Updates the current authenticated user's name and notifies listeners.
+  /// Returns true if a user was updated, false otherwise.
+  bool changeName(String newName) {
+    if (_currentUser == null) return false;
+    _currentUser = MockUser(
+      email: _currentUser!.email,
+      password: _currentUser!.password,
+      name: newName,
+    );
+    notifyListeners();
+    return true;
+  }
 }
